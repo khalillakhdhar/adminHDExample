@@ -1,0 +1,24 @@
+<!-- admin.component.html -->
+<div class="d-flex flex-column min-vh-100">
+
+  <!-- Topbar -->
+  <app-header></app-header>
+
+  <!-- Main layout: sidebar + content -->
+  <div class="d-flex flex-grow-1" style="min-height: 0;">
+
+    <!-- Sidebar -->
+    <app-navbar class="bg-light border-end" style="width: 250px;"></app-navbar>
+
+    <!-- Content area -->
+    <div class="flex-grow-1 p-4" style="background-color: #f8f9fa;">
+      <div class="bg-white rounded shadow-sm p-4" style="min-height: 100%;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>

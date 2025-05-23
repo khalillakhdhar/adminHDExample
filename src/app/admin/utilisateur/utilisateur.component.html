@@ -1,0 +1,59 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>Liste des Utilisateurs</h4>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">➕ Ajouter</button>
+  </div>
+
+  <table class="table table-hover table-bordered table-striped table-responsive">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.roles }}</td>
+        <td>
+          <button class="btn btn-sm btn-danger" (click)="deleteUser(user.id!)">🗑 Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal d'ajout -->
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form (ngSubmit)="addUser()" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter un utilisateur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Nom</label>
+          <input class="form-control" [(ngModel)]="newUser.name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input class="form-control" [(ngModel)]="newUser.email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Mot de passe</label>
+          <input class="form-control" type="password" [(ngModel)]="newUser.password" name="password" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="closeModalBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+      </div>
+    </form>
+  </div>
+</div>
