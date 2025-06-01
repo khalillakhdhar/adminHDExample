@@ -10,6 +10,12 @@ export class MaterielService {
   private apiUrl = 'http://localhost:8080/materiels';
 
   constructor(private http: HttpClient) {}
+countMateriels(): Observable<number> {
+  return this.http.get<number>(`${this.apiUrl}/count`);
+}
+getStockCritiquePercentage(): Observable<number> {
+  return this.http.get<number>(`${this.apiUrl}/stock-critique-percentage`);
+}
 
   getAll(): Observable<Materiel[]> {
     return this.http.get<Materiel[]>(this.apiUrl);

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { AuthInterceptor } from '../core/services/auth.interceptor';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AuthInterceptor } from '../core/services/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
 
+NgChartsModule
   ],
   providers: [
       provideHttpClient(),

@@ -10,6 +10,9 @@ export class FournisseurService {
   private apiUrl = 'http://localhost:8080/api/fournisseurs';
 
   constructor(private http: HttpClient) {}
+countFournisseurs(): Observable<number> {
+  return this.http.get<number>(`${this.apiUrl}/count`);
+}
 
   getAll(): Observable<Fournisseur[]> {
     return this.http.get<Fournisseur[]>(this.apiUrl);

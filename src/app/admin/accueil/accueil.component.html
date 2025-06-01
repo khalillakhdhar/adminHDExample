@@ -1,1 +1,78 @@
-<p>accueil works!</p>
+<div class="container py-4">
+  <h2 class="mb-4 text-center">📊 Tableau de bord</h2>
+
+  <div class="row g-4 mb-5 text-center">
+    <div class="col-md-3 col-sm-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">👥 Utilisateurs</h5>
+          <p class="card-text display-6 fw-bold text-primary">{{ totalUsers }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">📦 Matériels</h5>
+          <p class="card-text display-6 fw-bold text-success">{{ totalMateriels }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">🏢 Fournisseurs</h5>
+          <p class="card-text display-6 fw-bold text-warning">{{ totalFournisseurs }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">⚠️ Stock critique</h5>
+          <p class="card-text display-6 fw-bold text-danger">{{ stockCritiquePercentage }}%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-5">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title text-center">Répartition du stock</h5>
+          <div style="display: block;">
+            <canvas
+              baseChart
+              [data]="pieChartData"
+              [type]="'pie'">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mb-3">📋 Liste des fournisseurs</h3>
+  <div class="table-responsive shadow-sm rounded">
+    <table class="table table-hover table-bordered">
+      <thead class="table-light">
+        <tr>
+          <th>Nom</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of fournisseurs">
+          <td>{{ f.nom }}</td>
+          <td>{{ f.adresse }}</td>
+          <td>{{ f.telephone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

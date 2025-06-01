@@ -13,6 +13,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
+
   ]
 })
 export class AdminModule { }

@@ -14,6 +14,9 @@ export class UserService {
   login(username: string, password: string): Observable<string> {
     return this.http.post(`${this.apiUrl}/login`, { userName: username, password }, { responseType: 'text' });
   }
+countUsers(): Observable<number> {
+  return this.http.get<number>(`${this.apiUrl}/users/count`);
+}
 
   register(user: UserInfo): Observable<UserInfo> {
     return this.http.post<UserInfo>(`${this.apiUrl}/add`, user);
